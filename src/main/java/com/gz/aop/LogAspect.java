@@ -12,14 +12,24 @@ import java.lang.reflect.Method;
 
 /**
  * 切面
+ * @Aspect 声明是一个切面
+ * @Component 让这个切面注册为Spring 的一个bean
+ *
  */
 @Aspect
 @Component
 public class LogAspect {
+    /**
+     * 声明切点
+     */
     @Pointcut("@annotation(com.gz.aop.Action)")
     public void annotationPointCut() {
     }
 
+    /**
+     * 声明一个建言 并使用@Pointcut 定义的切点
+     * @param joinPoint
+     */
     @After("annotationPointCut()")
     public void after(JoinPoint joinPoint) {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
@@ -28,6 +38,10 @@ public class LogAspect {
         System.out.println("注解式拦截" + action.name());
     }
 
+    /**
+     * 声明一个建言，此建言直接使用拦截规则作为参数
+     * @param joinPoint
+     */
     @Before(value = "execution(* com.gz.aop.*.*(..))")
     public void before(JoinPoint joinPoint) {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
