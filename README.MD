@@ -15,3 +15,7 @@
 @org.springframework.context.annotation.Bean 注解方法上，声明当前方法的返回值是一个Bean
 @Inject 、@Resource 、 @Autowired 的是等效的，都是注入bean
 ```
+
+# Spring Aop
+> AOP的存在就是为了解耦，AOP可以让一组类共享相同的行为
+
