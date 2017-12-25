@@ -28,10 +28,10 @@ public class LogAspect {
         System.out.println("注解式拦截" + action.name());
     }
 
-    //@Before(value = "execution(*com.gz.aop.DemoMethodService)")
-    //public void before(JoinPoint joinPoint) {
-    //    MethodSignature signature = (MethodSignature) joinPoint.getSignature();
-    //    Method method = signature.getMethod();
-    //    System.out.println("方法规则拦截" + method.getName());
-    //}
+    @Before(value = "execution(* com.gz.aop.*.*(..))")
+    public void before(JoinPoint joinPoint) {
+        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+        Method method = signature.getMethod();
+        System.out.println("方法规则拦截" + method.getName());
+    }
 }

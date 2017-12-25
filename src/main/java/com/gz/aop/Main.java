@@ -2,6 +2,9 @@ package com.gz.aop;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+/**
+ * @author xiaozefeng
+ */
 public class Main {
 
     public static void main(String[] args) {
